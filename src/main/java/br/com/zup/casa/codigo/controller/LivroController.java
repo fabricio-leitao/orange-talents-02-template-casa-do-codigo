@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zup.casa.codigo.controller.request.NovoAutorRequest;
-import br.com.zup.casa.codigo.model.Autor;
+import br.com.zup.casa.codigo.controller.request.NovoLivroRequest;
+import br.com.zup.casa.codigo.model.Livro;
 
 @RestController
-public class AutorController {
-	
+public class LivroController {
+
 	@PersistenceContext
 	private EntityManager manager;
 	
-	@PostMapping(value = "/autores")
+	@PostMapping("/livros")
 	@Transactional
-	public String cria(@Valid @RequestBody NovoAutorRequest request){
-		Autor autor = request.toModel();
-		manager.persist(autor);
-		return autor.toString();
+	public String cria(@RequestBody @Valid NovoLivroRequest request) {
+		Livro livro = request.toModel(manager);
+		manager.persist(livro);
+		return livro.toString();
 	}
 }

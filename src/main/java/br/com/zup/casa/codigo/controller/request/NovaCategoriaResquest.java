@@ -2,11 +2,13 @@ package br.com.zup.casa.codigo.controller.request;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.zup.casa.codigo.annotation.UniqueValue;
 import br.com.zup.casa.codigo.model.Categoria;
 
 public class NovaCategoriaResquest {
 
 	@NotBlank
+	@UniqueValue(domainClass = Categoria.class, fieldName="nome")
 	private String nome;
 	
 	public void setNome(String nome) {

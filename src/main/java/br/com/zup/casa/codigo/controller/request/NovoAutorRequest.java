@@ -1,10 +1,10 @@
 package br.com.zup.casa.codigo.controller.request;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zup.casa.codigo.annotation.UniqueValue;
 import br.com.zup.casa.codigo.model.Autor;
 
 public class NovoAutorRequest {
@@ -13,7 +13,7 @@ public class NovoAutorRequest {
 	private String nome;
 	@NotBlank
 	@Email
-	@Column(unique = true)
+	@UniqueValue(domainClass = Autor.class, fieldName = "email")
 	private String email;
 	@NotBlank
 	@Size(max = 400)
