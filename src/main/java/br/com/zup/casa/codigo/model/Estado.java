@@ -21,6 +21,11 @@ public class Estado {
 	@ManyToOne
 	private @NotNull @Valid Pais pais;
 
+	@Deprecated
+	public Estado() {
+		
+	}
+	
 	public Estado(@NotBlank String nome, @NotBlank @Valid Pais pais) {
 		this.nome = nome;
 		this.pais = pais;
@@ -31,7 +36,8 @@ public class Estado {
 		return "Estado [id=" + id + ", nome=" + nome + ", pais=" + pais + "]";
 	}
 
-	public boolean pertencePais(Pais pais) {
+	public boolean pertenceAPais(Pais pais) {
 		return this.pais.equals(pais);
 	}
+
 }

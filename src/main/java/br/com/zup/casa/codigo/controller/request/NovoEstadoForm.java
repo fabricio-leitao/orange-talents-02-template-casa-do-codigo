@@ -37,4 +37,6 @@ public class NovoEstadoForm {
 	public String toString() {
 		return "NovoEstadoForm [nome=" + nome + ", idPais=" + idPais + "]";
 	}
+	
+	
 }
