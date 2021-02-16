@@ -18,7 +18,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Livro {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -35,12 +35,15 @@ public class Livro {
 	@NotNull
 	@ManyToOne
 	private Categoria categoria;
-	
 
+	@Deprecated
+	public Livro() {
+	}
 
 	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numeroPaginas, @NotBlank String isbn,
-			@Future @NotNull LocalDate dataPublicacao, @NotNull @Valid Autor autor, @NotNull @Valid Categoria categoria) {
+			@Future @NotNull LocalDate dataPublicacao, @NotNull @Valid Autor autor,
+			@NotNull @Valid Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -52,8 +55,6 @@ public class Livro {
 		this.autor = autor;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Livro [id=" + id + ", titulo=" + titulo + ", resumo=" + resumo + ", sumario=" + sumario + ", preco="
@@ -61,8 +62,40 @@ public class Livro {
 				+ ", autor=" + autor + ", categoria=" + categoria + "]";
 	}
 
+	public long getId() {
+		return id;
+	}
 
+	public String getTitulo() {
+		return titulo;
+	}
 
-	
-	
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public Integer getNumeroPaginas() {
+		return numeroPaginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public LocalDate getDataPublicacao() {
+		return dataPublicacao;
+	}
+
 }

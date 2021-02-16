@@ -25,4 +25,5 @@ public class LivroController {
 		manager.persist(livro);
 		return livro.toString();
 	}
+	
 }

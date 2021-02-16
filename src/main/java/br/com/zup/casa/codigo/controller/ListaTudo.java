@@ -17,11 +17,13 @@ public class ListaTudo {
 
 	@GetMapping(value = "/lista-tudo")
 	public HashMap<String, Object> list() {		
+		@SuppressWarnings("rawtypes")
 		List autores = manager.createQuery("select a from Autor a").getResultList();
 		
 		HashMap<String, Object> resultado = new HashMap<>();
 		resultado.put("autores", autores.toString());
 		
+		@SuppressWarnings("rawtypes")
 		List categorias = manager.createQuery("select c from Categoria c").getResultList();
 		resultado.put("categorias", categorias.toString());
 		
