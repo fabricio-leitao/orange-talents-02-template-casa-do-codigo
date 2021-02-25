@@ -17,7 +17,7 @@ import javax.validation.Payload;
 public @interface ExistsId {
 
 	String message() default "{com.deveficiente.beanvalidation.existsid}";
-	Class<?>[] groups() default { };
+	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default { };
 	String fieldName();
 	Class<?> domainClass();

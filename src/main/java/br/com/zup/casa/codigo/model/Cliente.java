@@ -50,11 +50,11 @@ public class Cliente {
 		this.cep = cep;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Cliente [email=" + email + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpfOuCnpj=" + cpfOuCnpj
-				+ ", endereco=" + endereco + ", complemento=" + complemento + ", cidade=" + cidade + ", pais=" + pais
-				+ ", estado=" + estado + "]";
+		return "Cliente [id=" + id + "]";
 	}
 
 	public void setEstado(@NotNull @Valid Estado estado) {

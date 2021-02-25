@@ -16,12 +16,8 @@ import javax.validation.Payload;
 public @interface UniqueValue {
 
 	String message() default "{br.com.zup.casa.codigo.annotation.uniquevalue}";
-	
 	Class<?>[] groups() default {};
-	
 	Class<? extends Payload>[] payload() default { };
-	
 	String fieldName();
-	
 	Class<?> domainClass();
 }
